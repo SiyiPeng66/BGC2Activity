@@ -157,9 +157,3 @@ python scripts/feedback_update_and_freeze.py \
 python scripts/select_screening_cohort.py \
   --ranked-candidates calibrated_scores.tsv --output round2_selection.tsv
 ```
-
-Input schemas: `round1.tsv` needs `candidate_library_id`, `sbase`
-(predicted log10(MIC)), `observed_log10_mic` and the nine feature columns
-fixed by `src/bgc2activity/scoring_contract.py`; corpus and entity tables
-follow the column contracts documented in each script's docstring.
-
