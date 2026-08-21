@@ -1,0 +1,3 @@
+dataset_scope	n_unique_sequences	n_positive	n_negative	positive_fraction	label_definition	unit_handling	analysis_role
+Strict MIC-labelled dataset	7358	5067	2291	0.688638216906768	Positive: MIC ≤ 8; negative: MIC > 64; µM and µg mL−1 treated separately	µM and µg mL−1 retained in separate unit buckets	Primary supervised activity dataset
+Non-standard or chemically modified subset	4739	3511	1228	0.740873602025744	Same strict MIC thresholds and sequence-level deduplication	µM and µg mL−1 retained in separate unit buckets	Target-chemistry coverage analysis

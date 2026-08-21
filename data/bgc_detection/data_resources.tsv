@@ -1,0 +1,10 @@
+resource	resource_type	version_or_snapshot	access_date	official_source	records	counting_unit	analysis_role
+NCBI RefSeq	genome database	Project-frozen accession set		https://www.ncbi.nlm.nih.gov/refseq/	56709	unique genome accession	genome-scale screening for NRPS-positive BGCs
+GeneSwap negatives	synthetic BGC-negative training set	DeepBGC v0.1.0 prepared training snapshot		in supplied metadata	1984	negative sample used in formal run	negative supervision for OurModel (BGC detector) training
+MIBiG	known-BGC reference database	v4.0 local reference		https://mibig.secondarymetabolites.org/	2636	MIBiG GenBank record	known-BGC novelty reference and product-context annotation
+DBAASP	peptide and antimicrobial-activity database	dynamic database snapshot	2026-07-21	https://dbaasp.org/	6909	source peptide entity	nonstandard-peptide pretraining and strict MIC supervision
+DRAMP	peptide and antimicrobial-activity database	DRAMP 3.0 project snapshot	2026-07-21	http://dramp.cpu-bioinfor.org/downloads/	35485	source peptide record	peptide pretraining and strict MIC supervision
+APD	curated antimicrobial-peptide database	APD2024 FASTA subsets	2026-07-21	https://aps.unmc.edu/downloads	4359	source peptide record	positive peptide pretraining corpus
+CAMPR4	peptide and antimicrobial-activity database	CAMPR4 Download All snapshot	2026-07-21	https://camp.bicnirrh.res.in/	24243	source peptide record	peptide pretraining and strict MIC supervision
+dbAMP	peptide and functional-activity database	v2.0	2026-07-21	https://ycclab.cuhk.edu.cn/dbAMP/download.php	28709	source peptide record	peptide pretraining and broad functional supervision
+SATPdb	therapeutic-peptide and functional-activity database	v1 Zenodo snapshot	2026-07-21	https://zenodo.org/records/20078292	19192	source peptide record	nonstandard-peptide pretraining and broad functional supervision

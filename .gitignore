@@ -1,0 +1,23 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Local or restricted materials must be explicitly promoted through the release manifest.
+data/raw/
+data/restricted/
+data/staging/
+models/checkpoints/
+results/
+
+# Prevent accidental publication of large legacy experiment artefacts.
+*.pt
+*.pth
+*.ckpt
+*.joblib
+*.pkl

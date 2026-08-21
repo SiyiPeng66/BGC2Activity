@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bgc2activity"
+version = "0.1.0"
+description = "Manuscript-governed reconstruction of the BGC2Activity analysis workflow"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+# Scientific stack used by the reconstructed model modules and data builders.
+# Versions follow Supplementary Method 24 of the final manuscript where stated.
+models = [
+    "torch>=2.0",
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scikit-learn>=1.3",
+    "openpyxl>=3.1",
+]
+# Genome annotation stack with manuscript-fixed versions (Supplementary
+# Methods 6.3 and 24). Imported lazily by bgc2activity.detection.annotation.
+annotation = [
+    "pyrodigal==3.7.1",
+    "pyhmmer==0.12.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

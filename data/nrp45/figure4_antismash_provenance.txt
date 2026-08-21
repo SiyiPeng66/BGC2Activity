@@ -1,0 +1,9 @@
+Official antiSMASH version: 7
+Record: NZ_JANADF010000001.1
+Region: NZ_JANADF010000001.1.region001 (505745-619255)
+Products: NRP-metallophore, NRPS, terpene
+AMP-binding domains detected in displayed genes: 11
+Reconstruction mapping: 9 A-domain source entries were reported; ctg1_491 was not used, and only two of the three ctg1_529 A domains were used.
+Unresolved mapping: the available reconstruction table does not identify which two ctg1_529 A domains supplied the candidate residues.
+Assembly warning: RefSeq assembly GCF_026229585.1 is suppressed due to contamination; interpret as putative genomic context.
+Mapping note: antiSMASH Prodigal ctg1 identifiers were mapped to PGAP annotations by genomic overlap.

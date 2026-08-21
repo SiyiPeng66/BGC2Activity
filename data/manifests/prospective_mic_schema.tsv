@@ -1,0 +1,8 @@
+column	type	required	description
+screened_candidate_id	string	yes	Stable screened-candidate identifier (pep_1..pep_80, frozen numbering of the final V3 MIC table).
+candidate_library_source_id	string	yes	Legacy source-candidate identifier recorded in the V3 MIC table (historical numbering, retained for traceability).
+screening_round	string	yes	Round 1 or Round 2; Round 2 candidates do not overlap Round 1.
+sequence	string	yes	Synthesised NRPS-informed candidate sequence label (lowercase hyphen-separated monomers).
+test_organism	string	yes	One of the five indicator organisms: A. baumannii, E. coli, P. aeruginosa, S. aureus, S. enterica.
+mic_ug_mL	string	yes	Observed MIC in micrograms per millilitre, numeric or right-censored >256.
+active_at_mic_le_256	boolean	yes	Whether the measurement reaches the broad screening threshold MIC <= 256.

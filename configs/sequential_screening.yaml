@@ -1,0 +1,31 @@
+schema_version: "2.0"
+source: "main text sections 2.3 and 3.3; Supplementary Methods 13-18 and Fig. 3 caption; regression formulation per author decision DC-1 (2026-08-20)"
+status: "manuscript-derived workflow contract; outputs pending"
+round_1:
+  candidate_count: 40
+  selection: "top 100 candidates by ascending Sbase (predicted log10(MIC)) followed only by chemical-entity deduplication, core-sequence/structural-cluster caps, per-BGC caps and synthesis-feasibility checks"
+  screening_hits_at_or_below_256_ug_mL: 8
+score_update:
+  target: "observed log10(MIC); thresholds define endpoints only, never the update target"
+  formula: "Supd = Sbase + beta^T x; Sbase coefficient fixed at 1 (ridge residual regression)"
+  features: [length, net_charge_pH7, GRAVY, aromatic_fraction, nonstandard_monomer_fraction, is_lipidated, is_c_terminal_amidated, molecular_weight, structural_missingness_indicator]
+  feature_selection: forbidden
+  regularization_C: [0.0001, 0.0003, 0.001, 0.003, 0.01, 0.03, 0.1]
+  selection: "lowest inner-CV RMSE; effective degrees of freedom <=4 (RD-10)"
+  cross_fitting: {folds: 5, stratified: "quartile bins of the observed target (RD-11)"}
+calibration:
+  method: "monotone (isotonic, pool-adjacent-violators) regression-scale calibration"
+  formula: "Scal = monotone non-decreasing mapping of Supd onto calibrated predicted log10(MIC)"
+  development: "per-fold isotonic fits on the out-of-fold Supd of the 32 training records of the same fold (RD-12)"
+  final: "isotonic fit on the 40 out-of-fold Supd values and observed targets; frozen for Round 2"
+  score_percentile_truncation: [0.5, 99.5]
+  calibration_scale: "predicted log10(MIC)"
+round_2:
+  candidate_count: 40
+  selection: "ascending calibrated predicted log10(MIC) from the frozen Calibrated Model"
+  screening_hits_at_or_below_256_ug_mL: 18
+  potent_hits_at_or_below_64_ug_mL: 12
+  requirement: "drawn from candidates not entering Round 1 after the frozen update/calibration workflow"
+freeze:
+  required_artifact_roles: [model_checkpoint, configuration, round1_labels, candidate_features, sbase_scores, supd_scores, calibrated_scores, selection_rules, round2_candidate_list, runtime_environment]
+  required_metadata: [UTC_timestamp, code_commit, SHA256_checksums]

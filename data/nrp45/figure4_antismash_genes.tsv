@@ -1,0 +1,21 @@
+gene_id	pgap_locus_tag	genomic_start	genomic_end	start	end	strand	gene_class	product	region_id
+ctg1_481	NLM24_RS02415	519251	523535	0	4284	-1	core NRPS	nocobactin polyketide synthase NbtC	NRPS block A
+ctg1_482	NLM24_RS02420	523527	524844	4276	5593	-1	other	polyketide synthase	NRPS block A
+ctg1_483	NLM24_RS02425	524858	525614	5607	6363	-1	tailoring	alpha/beta fold hydrolase	NRPS block A
+ctg1_484	NLM24_RS02430	525745	530332	6494	11081	-1	core NRPS	amino acid adenylation domain-containing protein	NRPS block A
+ctg1_485	NLM24_RS02435	530328	536379	11077	17128	-1	core NRPS	amino acid adenylation domain-containing protein	NRPS block A
+ctg1_486	NLM24_RS02440	536380	539815	17129	20564	-1	core NRPS	amino acid adenylation domain-containing protein	NRPS block A
+ctg1_487	NLM24_RS02445	540013	541768	20762	22517	-1	core NRPS	condensation domain-containing protein	NRPS block A
+ctg1_488	NLM24_RS02450	541908	546354	22657	27103	-1	core NRPS	amino acid adenylation domain-containing protein	NRPS block A
+ctg1_489	NLM24_RS02455	546421	547363	27170	28112	-1	tailoring	methionyl-tRNA formyltransferase	NRPS block A
+ctg1_490	NLM24_RS02460	547417	548746	28166	29495	-1	other	SidA/IucD/PvdA family monooxygenase	NRPS block A
+ctg1_491	NLM24_RS02465	549200	550253	29949	31002	-1	core NRPS	AMP-binding protein	NRPS block A
+ctg1_527	NLM24_RS02645	579594	580404	0	810	1	other	enoyl-CoA hydratase-related protein	NRPS block B
+ctg1_528	NLM24_RS02655	580551	581574	957	1980	-1	tailoring	alpha/beta hydrolase family protein	NRPS block B
+ctg1_529		581870	591269	2276	11675	-1	core NRPS	hypothetical protein	NRPS block B
+ctg1_530	NLM24_RS02660	591557	599255	11963	19661	-1	core NRPS	amino acid adenylation domain-containing protein	NRPS block B
+ctg1_531	NLM24_RS02665	599863	601357	20269	21763	-1	core NRPS	AMP-binding protein	NRPS block B
+ctg1_532	NLM24_RS02670	601611	602688	22017	23094	-1	regulator	LuxR C-terminal-related transcriptional regulator	NRPS block B
+ctg1_533	NLM24_RS02675	602669	603500	23075	23906	-1	other	M23 family metallopeptidase	NRPS block B
+ctg1_534	NLM24_RS02680	604017	604410	24423	24816	1	other	SCO5389 family protein	NRPS block B
+ctg1_535	NLM24_RS02685	604480	606118	24886	26524	-1	core NRPS	long-chain fatty acid--CoA ligase	NRPS block B

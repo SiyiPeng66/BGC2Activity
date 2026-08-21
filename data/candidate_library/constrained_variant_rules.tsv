@@ -1,0 +1,12 @@
+variant_class	variant_detail	C_terminal	systematic_library	record_count	unique_parent_BGC_count
+predefined constrained variant	project-defined sequence variant	OH	True	29	19
+fatty-acylated plus C-terminal amidation	Myr-NH2	NH2	TRUE	231	231
+C-terminal amidation	base sequence-NH2	NH2	TRUE	9076	9076
+beta-hydroxy fatty-acyl group	3R-OH-Myr	OH	TRUE	231	231
+fatty-acyl chain length	C13:0	OH	TRUE	231	231
+branched-chain fatty-acyl group	iso-C13:0	OH	TRUE	231	231
+fatty-acyl chain length	Lau	OH	TRUE	231	231
+fatty-acyl reference	Myr	OH	TRUE	231	231
+unsaturated fatty-acyl group	MyrO	OH	TRUE	231	231
+direct concatenation	base sequence	OH	TRUE	12035	12035
+Orn configuration	first Orn to D-Orn	OH	TRUE	783	783

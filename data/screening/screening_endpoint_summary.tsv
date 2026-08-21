@@ -1,0 +1,3 @@
+screening_round	candidates	screening_hits_mic_le_256	screening_hit_rate	broad_spectrum_hits_ge2_organisms	potent_hits_mic_le_64	potent_hit_rate	best_observed_mic_ug_mL
+Round 1	40	8	0.2	0	3	0.075	64.0
+Round 2	40	18	0.45	5	12	0.3	8.0
