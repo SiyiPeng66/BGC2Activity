@@ -1,7 +1,0 @@
-rule_id	stage	criterion	frozen_rule	reporting_level	source_data_pointer
-F2-R01	NRPS-positive BGC identification	NRPS-positive BGC retained by upstream workflow	Retained by the upstream NRPS-positive BGC workflow	Core rule	Full field-level audit retained in V2 TSV source data
-F2-R02	A-domain substrate prediction	At least one ordered substrate prediction available	At least one ordered A-domain substrate prediction	Core rule	Full field-level audit retained in V2 TSV source data
-F2-R03	Prediction confidence	Prediction confidence threshold	≥0.8	Core rule	Full field-level audit retained in V2 TSV source data
-F2-R04	Effective module count	Minimum number of effective modules	≥5 effective modules	Core rule	Full field-level audit retained in V2 TSV source data
-F2-R05	Monomer synthesis decision	All retained monomers pass the documented synthesis decision	All monomers pass the synthesis decision rule	Core rule	Full field-level audit retained in V2 TSV source data
-F2-R06	Wet-lab isolation	Activity labels do not alter Figure 3 inclusion	Experimental labels do not alter systematic-library inclusion	Core rule	Full field-level audit retained in V2 TSV source data

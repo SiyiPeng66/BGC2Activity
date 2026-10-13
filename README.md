@@ -1,168 +1,183 @@
 # BGC2Activity
 
-## Runnable sequence-prediction release (2026-10-13)
+Predict candidate biosynthetic gene clusters (BGCs) from bacterial or archaeal DNA, and predict peptide minimum inhibitory concentration (MIC, µg/mL) from peptide sequences.
 
-The self-contained [BGC2Activity1013 release](BGC2Activity1013/README.md) includes
-trained models, small DNA and peptide demos, an English installation guide,
-and Conda/pip environment specifications. After cloning, run
-`cd BGC2Activity1013` and follow its README. Pfam-A.hmm is downloaded separately.
-The earlier implementation below is preserved for reference; use the release
-subdirectory for the new prediction commands.
+**Pretrained models are included. You do not need to train a model or specify a checkpoint for normal use.** The two workflows are separate: BGC DNA is not a peptide sequence, and this release does not automatically reconstruct a peptide product from a detected BGC.
 
-Analysis code and core data for *Hierarchical NRPS-guided global-to-local
-discovery and optimisation of synthetic anti-MRSA lipopeptides*
-(Peng et al.). The repository implements the complete computational workflow
-of the study: genome-scale BGC detection, reconstruction of NRPS-informed
-synthetic peptide candidates, chemical-aware peptide representation learning,
-quantitative MIC-regression activity modelling with experimental feedback
-updating, fixed-budget sequential screening, and local optimisation of the
-NRP45 scaffold.
+## 1. Install once
 
-## What the study does
+Use Linux or macOS; Windows users can use WSL2. Install [Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install), download or clone this repository, and open a terminal in its root directory.
 
-1. A multitask BGC detection model (frozen pfam2vec input, Time-mixing /
-   Channel-mixing blocks, eight-expert MoE, position threshold 0.45) screens
-   56,709 RefSeq genomes under an evolutionary-family-held-out evaluation
-   design.
-2. NRPS-informed synthetic candidate structures are reconstructed:
-   258,750 NRPS-positive BGCs → 77,587 substrate-predicted BGCs →
-   12,266 parent BGCs → 23,540 standardised candidate records.
-3. Chemical-aware peptide pretraining initialises a frozen
-   **Base MIC Regression Model** trained on curated quantitative public MIC
-   measurements (log10(MIC) as the continuous target, scalar regression head).
-4. Round 1 (40 candidates, 8 screening hits) feeds a low-capacity residual
-   regression update plus monotone regression-scale calibration under
-   five-fold cross-fitting; the independently frozen Round-2 cohort
-   (40 new candidates, 18 hits; potent hits 3/40 → 12/40) is a prospective
-   validation, not a causal feedback estimate.
-5. Local optimisation around the synthetic NRP45 scaffold (384 constrained
-   derivatives, 20 synthesised) yields NRP45-A07, validated against MRSA
-   in vitro and in a locally treated implant-associated infection model.
+```bash
+conda env create -f environment.yml
+conda activate bgc2activity
+python -m pip install -e . --no-deps
+```
 
-## Two-model architecture
+Alternatively, create the environment manually:
 
-The study contains exactly two learned models; everything else is rule-based
-reconstruction, screening, statistics or release tooling. The two model
-lineages share no training data, vocabulary or weights.
+```bash
+conda create -n bgc2activity python=3.11 pip -y
+conda activate bgc2activity
+python -m pip install -r requirements.txt
+python -m pip install -e . --no-deps
+```
 
-**Model 1 — BGC detection model** (`src/bgc2activity/detection/`,
-Supplementary Methods 3–7). A multitask encoder over Pfam domain sequences in
-genomic order (frozen pfam2vec input; Time-mixing / Channel-mixing blocks;
-eight-expert mixture-of-experts; detection, product-class and
-evolutionary-contrastive objectives) screens 56,709 genomes at threshold 0.45
-under an evolutionary-family-held-out evaluation design.
+The installation requires internet access. Keep the repository's folder structure intact. In a new terminal, return to the project directory and run `conda activate bgc2activity` before using the commands below. Current prediction commands run on CPU; no GPU is required.
 
-**Model 2 — activity prediction stack** (main text §2.3; Supplementary
-Methods 9–17), three successive stages:
+The Conda specification uses Python 3.11 with dependency ranges, not an exact cross-platform lockfile. The existing development environment uses Python 3.13.9 and PyTorch 2.13.0. A clean Conda installation has not yet been verified; see [verification notes](docs/VERIFICATION.md).
 
-1. *Chemical-aware peptide pretraining* (`src/bgc2activity/representation/`,
-   Methods 9–10): masked chemical-context pretraining of a 3-layer
-   bidirectional Transformer over a 47-token monomer vocabulary with
-   BLAKE2b chemical-text + descriptor targets; initialises the Model-2
-   encoder.
-2. *Base MIC Regression Model* (`src/bgc2activity/activity/`, Method 12
-   freeze boundary): the pretrained encoder (first two layers frozen) plus
-   chemical-feature fusion and a scalar regression head predicting
-   log10(MIC); structural-cluster-disjoint splits; five-seed ensemble;
-   outputs the base score `Sbase` (lower = more active).
-3. *Feedback update and calibration* (`src/bgc2activity/calibration/`):
-   Round-1 measured log10(MIC) values feed the low-capacity residual update
-   `Supd = Sbase + beta^T x` (Sbase coefficient fixed at 1, ridge over nine
-   pre-specified features, effective-dof cap 4) and a monotone (isotonic)
-   regression-scale calibration to `Scal` under five-fold cross-fitting;
-   frozen before Round-2 selection.
+## 2. Try peptide activity prediction
 
-Non-negotiable rules (see contract): BGC score, reconstruction confidence and
-novelty are admission/provenance metadata only and never activity inputs;
-`Sbase`, `Supd` and `Scal` are distinct stored quantities; prespecified MIC
-thresholds define experimental endpoints only and never enter training;
-candidates are NRPS-informed synthetic compounds, never claimed as endogenous
-natural products.
+Run the included 80-peptide example:
 
-## Repository layout
+```bash
+python predict_activity.py -i examples/activity/input.tsv -o results/activity_demo.tsv
+```
+
+Open `results/activity_demo.tsv` in Excel, selecting **Tab** as the separator if necessary.
+
+| Column | Meaning |
+|---|---|
+| `sample_id` | Input peptide identifier |
+| `predicted_mic_ug_ml` | Predicted MIC in µg/mL; lower values indicate a lower predicted inhibitory concentration |
+| `predicted_log2_mic` | log₂(MIC); a value of 8 corresponds to 256 µg/mL |
+| `label_only_monomers` | Recognized monomer names without fully verified structural properties |
+
+Numbers are displayed to three decimal places. Additional columns report whether length, monomers, configurations or modifications fall outside supervised training coverage. A neighboring `.metadata.json` records model and input hashes.
+
+### Use your own peptides
+
+For unmodified standard sequences, create `peptides.fasta`:
+
+```fasta
+>peptide_1
+SLSTAALSSTLSASAAL
+>peptide_2
+TTKSSRSSSEY
+```
+
+```bash
+python predict_activity.py -i peptides.fasta -o results/my_activity.tsv
+```
+
+For nonstandard monomers or modifications, copy `examples/activity/input.tsv` and replace the rows. Keep the header, use unique identifiers, and save as **tab-separated text**, not an Excel workbook renamed to `.tsv`.
+
+```tsv
+sample_id	tokens	n_terminal	c_terminal	cyclization
+peptide_1	T;T;K;hxorn;S;R;S;hxorn;E;Y;dab	free	free	unknown
+```
+
+| Field | Allowed values |
+|---|---|
+| `sample_id` | Required, unique, nonempty identifier |
+| `tokens` | Required; separate monomers with semicolons; standard sequences may also use contiguous single letters |
+| `n_terminal` | `unknown`, `free`, `acetyl` |
+| `c_terminal` | `unknown`, `free`, `amide` |
+| `cyclization` | `unknown`, `linear`, `head_tail` |
+
+Missing modification fields mean `unknown`. For `head_tail`, both terminal fields must be `unknown`. Do not include experimental labels or other extra columns. FASTA cannot express these modifications; use TSV when they are known. Explicit stereochemistry uses `d-` or `l-` monomer prefixes.
+
+**Current limits:** 4–64 monomers, with supervised lengths of 5–41. Only identities covered by the checkpoint are accepted. Methionine (`M`) is currently absent from its vocabulary, so even a valid standard FASTA containing M is rejected. Do not delete residues or substitute X to bypass this restriction. See [model notes](docs/MODELS.md) for supported nonstandard identities.
+
+| Option | Purpose |
+|---|---|
+| `-i`, `--input` | Required FASTA or TSV input |
+| `-o`, `--output` | Output TSV; defaults to `INPUT.predictions.tsv` beside the input |
+| `--overwrite` | Replace existing output files |
+| `--model` | Optional compatible checkpoint; normally leave this unset |
+
+The 80 demo peptides were used for training. Their outputs demonstrate operation, not independent test performance. Reference identifiers and user-confirmed experimental log₂MIC values are in `examples/activity/reference_labels.tsv`.
+
+## 3. Try BGC prediction from DNA
+
+### Download Pfam once
+
+BGC prediction needs the external **Pfam-A.hmm** database (approximately 2.1 GB in the development installation). It is not included in this repository.
+
+```bash
+mkdir -p data/pfam
+curl -L --fail --output data/pfam/Pfam-A.hmm.gz https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
+gunzip data/pfam/Pfam-A.hmm.gz
+```
+
+If you already have the decompressed file, place it at `data/pfam/Pfam-A.hmm`, or provide its path using `--pfam-db`. The `current_release` download can change: different Pfam versions may change results. Each run records the database hash. The workflow uses PyHMMER and Pyrodigal directly; separate `hmmpress`, `hmmscan`, or Prodigal executables are not needed.
+
+### Run the sequence demo
+
+```bash
+python scripts/predict_bgc_genome.py \
+  --genome examples/bgc/input.fna \
+  --output results/bgc_demo
+```
+
+The program predicts genes, translates proteins, searches Pfam, and calls candidate BGC regions. Wait for the completion message; database searching takes longer than peptide prediction.
+
+Open **`results/bgc_demo/bgc_regions.tsv`**:
+
+| Column | Meaning |
+|---|---|
+| `region_id` | Candidate identifier assigned during this run |
+| `contig` | Input FASTA sequence identifier |
+| `start`, `end` | DNA coordinates, starting at 1 and including both endpoints |
+| `n_genes` | Number of predicted genes in the region |
+| `product_class` | Predicted NRPS, PKS, RiPP, Terpene or Other class |
+| `nrps_positive` | Whether the program's NRPS criteria are met; False does not mean “not a BGC” |
+
+Only detected candidates appear in this table. An input can produce zero, one or multiple regions. `Other` is a product class, not a negative label. No detected region does not establish experimental absence of a BGC.
+
+Other outputs include `bgc_regions.fna` (candidate DNA), `bgc_regions.gff3` (coordinates for genome browsers), `genes.tsv`, `proteins.faa`, `pfam_hits.tsv`, excluded overlapping hits, and `run_manifest.json` with resource hashes and parameters.
+
+### Use your own genome
+
+Replace the demo path with your bacterial or archaeal DNA FASTA:
+
+```bash
+python scripts/predict_bgc_genome.py --genome my_genome.fna --output results/my_genome
+```
+
+| Option | Default / purpose |
+|---|---|
+| `--genome` | Required DNA FASTA; sequence IDs must be unique |
+| `--output` | Required new or empty output directory |
+| `--pfam-db` | Project-relative `data/pfam/Pfam-A.hmm` |
+| `--cpus` | 2 CPU threads |
+| `--mode` | `auto`; `single` needs at least one contig ≥20 kb; `meta` uses metagenomic gene calling throughout |
+| `--checkpoint`, `--pfam2vec` | Bundled model resources; normally leave unset |
+
+Multiple contigs and IUPAC DNA ambiguity codes are accepted. The current pipeline treats contigs as linear, does not join regions across circular origins, and does not perform eukaryotic gene annotation. FASTA title text before the first space becomes the identifier.
+
+## 4. What is included?
 
 ```text
-configs/    Manuscript-derived, versioned model and workflow specifications
-data/       Release-ready core data (UTF-8 TSV) + manifests + retrieval records
-docs/       Release contract, legacy audits, checklist
-scripts/    Deterministic pipeline entry points (explicit paths, no legacy defaults)
-src/        Reconstructed implementation (package bgc2activity)
-tests/      Contract tests + manuscript-count assertions
+models/                Three trained checkpoints and Pfam2Vec
+src/                   Model and preprocessing implementations
+scripts/               Prediction, representation export and training code
+examples/bgc/          Small raw-DNA demo, reference labels and actual outputs
+examples/activity/     80 peptide sequences, labels and actual outputs
+results/               Your generated results (ignored by Git)
 ```
 
-## Installation
+BGC DNA input is approximately **148 KB**, well below 10 MB. It includes five reference BGC types and a genomic background fragment. The background lies outside local antiSMASH annotations but is **not an experimentally confirmed negative**. Expected and actual labels differ: the recorded run misses the RiPP example, misclassifies the PKS example and calls a region in the background. See `examples/bgc/comparison.tsv` and [data provenance](docs/DATA_SOURCES.md).
 
-Requires Python ≥ 3.10. The contract/data-audit layer is dependency-free;
-the model modules use an optional scientific stack.
+The repository is about 22 MB before Git history, dominated by Pfam2Vec and the checkpoints. Each included file is below 50 MB; Git LFS is not required for this snapshot. Pfam HMMs, full training datasets, environments, historical outputs and archives are excluded. Do not add them with `git add -f`. Checksums and sizes are in `models/manifest.json` and `repository_manifest.json`.
+
+## 5. Troubleshooting
+
+| Problem | Action |
+|---|---|
+| Missing Python package | Activate the environment and install with `python -m pip install -r requirements.txt` |
+| Pfam database not found | Download and decompress it, or pass `--pfam-db /path/to/Pfam-A.hmm` |
+| Output already exists | Choose another output; activity supports `--overwrite`, BGC requires a new/empty directory |
+| Unresolved / uncovered monomer | Check spelling and checkpoint vocabulary; arbitrary new identities require additional model work |
+| All text appears in one spreadsheet column | Import as tab-separated text |
+| No BGC rows | Check `run_manifest.json`; a completed run with no candidates is valid |
+| Different results with a new database | Compare database hashes and versions; annotation changes can affect predictions |
+
+For command options, append `--help`. To run local unit tests:
 
 ```bash
-git clone https://github.com/SiyiPeng66/BGC2Activity
-cd BGC2Activity
-
-# package (dependency-free core)
-pip install .
-
-# model modules (torch, numpy, pandas, scikit-learn, openpyxl)
-pip install .[models]
-
-# genome annotation stack with manuscript-fixed versions
-pip install .[annotation]
+python -m unittest discover -s tests -v
 ```
 
-For development without installation, put `src/` on `PYTHONPATH`
-(the `Makefile` targets do this automatically).
-
-## Usage
-
-All entry points take explicit paths; there are no legacy defaults.
-
-```bash
-# contract tests + data audit (dependency-free)
-make test
-make audit-data
-
-# full suite including torch modules
-make test-full
-
-# Model 1: BGC detector
-python scripts/train_bgc_detector.py \
-  --pfam2vec pfam2vec.csv \
-  --train-samples train.tsv --validation-samples validation.tsv \
-  --output-dir out/detector
-
-# Model 1 inference on ordered Pfam-region sequences
-python scripts/score_bgc_regions.py \
-  --pfam2vec pfam2vec.csv --checkpoint out/detector/detector_checkpoint.pt \
-  --regions ordered_regions.tsv --output out/detector/region_scores.tsv
-
-# Model 2, stage 1: chemical-aware pretraining
-python scripts/train_peptide_pretrainer.py \
-  --train-corpus corpus_train.tsv --validation-corpus corpus_val.tsv \
-  --output-dir out/pretrainer
-
-# Model 2, stage 2: Base MIC Regression Model (one seed per run; 42-46)
-python scripts/train_activity_model.py \
-  --input-table mic_entities.tsv --seed 42 \
-  --pretrainer-checkpoint out/pretrainer/pretrainer_checkpoint.pt \
-  --output-dir out/activity
-
-# Model 2 inference (one or more seed checkpoints; normally provide all 5)
-python scripts/score_activity_candidates.py \
-  --input-table candidate_features.tsv \
-  --checkpoints out/activity/base_regression_model_seed42.pt \
-  --manifests out/activity/training_manifest_seed42.json \
-  --output out/activity/candidate_scores.tsv
-
-# Model 2, stage 3: Round-1 feedback update + calibration + freeze manifest
-python scripts/feedback_update_and_freeze.py \
-  --round1-table round1.tsv --output-dir out/round1 \
-  --freeze-artifacts model_checkpoint=... configuration=... round1_labels=... \
-      candidate_features=... sbase_scores=... supd_scores=... \
-      calibrated_scores=... selection_rules=... round2_candidate_list=... \
-      runtime_environment=... \
-  --code-commit <sha> --study-version v1
-
-# Round-2 selection from calibrated scores (lower predicted log10(MIC) first)
-python scripts/select_screening_cohort.py \
-  --ranked-candidates calibrated_scores.tsv --output round2_selection.tsv
-```
+See [model limitations](docs/MODELS.md), [training notes](docs/TRAINING.md), and [third-party provenance](THIRD_PARTY.md). This is a reconstruction and inference release candidate, not a claim to recover every detail of the lost original implementation. No independent activity test set has yet been evaluated.

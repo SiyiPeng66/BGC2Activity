@@ -1,9 +1,0 @@
-column	type	required	description
-derivative_id	string	yes	Stable identifier for one non-redundant NRP45 derivative.
-parent_scaffold	string	yes	Must be NRP45; derivatives are synthetic local-optimisation candidates.
-subtype	string	yes	One of T1 T2 T3 or T4, defined by the frozen constrained enumeration.
-candidate_structure	string	yes	Explicit synthetic candidate structure/sequence.
-enumeration_rule	string	yes	Frozen constrained design rule that generated the candidate.
-molecular_weight_Da	float	yes	Calculated molecular mass in daltons.
-feedback_updated_rank	integer	yes	Priority rank from the frozen feedback-updated regression workflow.
-selected_for_synthesis	boolean	yes	Whether the derivative belongs to the 20 prioritised for synthesis and validation.
