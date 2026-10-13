@@ -1,0 +1,22 @@
+{
+  "bgc_detector.pt": {
+    "bytes": 5144477,
+    "sha256": "ef194435499efcd4198039fac3a2488c31b37e3d900e22352295356dec98b793",
+    "source_artifact": "runs/bgc_detector_v4_1006/detector_checkpoint.pt"
+  },
+  "activity.pt": {
+    "bytes": 1740665,
+    "sha256": "aacd0a9646f43433a786654c1b6fc03c756163d06cba485a8e9b0eac69e77626",
+    "source_artifact": "runs/mic_all_data_fit_1008_completed/mic_checkpoint.pt"
+  },
+  "peptide_encoder.pt": {
+    "bytes": 1626488,
+    "sha256": "dd8deda25bded32f778122e30733a4613178d3157a271613c993b356a9f60928",
+    "source_artifact": "runs/supplementary_records_encoder_1008/encoder.pt"
+  },
+  "pfam2vec.csv.gz": {
+    "bytes": 12272748,
+    "sha256": "b65e07d02443f464303fd88b2215fdb4cd22fdbbfec4564a0f3b7bd097b03e75",
+    "source_artifact": "data/raw/pfam2vec.csv.gz"
+  }
+}

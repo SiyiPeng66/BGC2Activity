@@ -1,0 +1,7 @@
+contig	reference_status	reference_class	length_bp	predicted_region_count	predicted_classes	predicted_coordinates
+BGC0000019	known_BGC	PKS	18038	1	Terpene	2..18038
+BGC0000319	known_BGC	NRPS	34452	1	NRPS	1036..34452
+BGC0001306	known_BGC	RiPP	6409	0		
+BGC0000651	known_BGC	Terpene	35427	1	Terpene	2..35426
+BGC0003066	known_BGC	Other	21552	1	Other	1..21550
+background_NC_003888_20001_50000	putative_non_BGC_background	not_applicable	30000	1	RiPP	5251..30000

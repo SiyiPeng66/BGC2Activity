@@ -1,0 +1,81 @@
+sample_id	tokens	n_terminal	c_terminal	cyclization	monomer_count	predicted_log2_mic	predicted_mic_ug_ml	outside_supervised_length_range	identities_without_MIC_training	states_without_MIC_training	configuration_without_MIC_training	label_only_monomers	model_status	label_kind
+sheet_32b56c7d7d90f8e0019c	T;T;K;hxorn;S;R;S;hxorn;E;Y;dab	free	free	unknown	11	3.307	9.896	False			False	hxorn	development	experimental_user_confirmed
+sheet_983e8aff8370d66418a5	S;L;S;T;A;A;L;S;S;T;L;S;A;S;A;A;L	free	free	unknown	17	2.692	6.462	False			False		development	experimental_user_confirmed
+sheet_2c70691973884b95a328	V;T;V;L;W;T;V;A;A;F;T	free	free	unknown	11	3.480	11.156	False			False		development	experimental_user_confirmed
+sheet_db333b0dd4b476252a8d	hxorn;horn;S;R;S;S;G;S;A;H	free	free	unknown	10	3.171	9.009	False			False	horn;hxorn	development	experimental_user_confirmed
+sheet_84b3f05b1548ec949f9f	R;G;L;I;orn;E;W;W;A;L;T;I	free	free	unknown	12	6.394	84.109	False			False		development	experimental_user_confirmed
+sheet_15ffdb527d0e4adde36e	K;L;T;E;G;V	free	free	unknown	6	3.271	9.656	False			False		development	experimental_user_confirmed
+sheet_078c4dde7ac56e15b57f	E;Y;dab;S;R;S	free	free	unknown	6	3.447	10.906	False			False		development	experimental_user_confirmed
+sheet_477572a753d7d9928ea9	hxorn;S;dab;E;Y;dab	free	free	unknown	6	3.734	13.304	False			False	hxorn	development	experimental_user_confirmed
+sheet_77873b1a6af5d18b07fa	A;I;N;S;S;N	free	free	unknown	6	3.445	10.889	False			False		development	experimental_user_confirmed
+sheet_2a7c251d89c248ae629e	K;L;beta-asp;dab;C	free	free	unknown	5	3.525	11.509	False			False		development	experimental_user_confirmed
+sheet_f5636b4aebf2208bbf98	L;L;beta-lys;dap;R	free	free	unknown	5	3.528	11.535	False			False	beta-lys	development	experimental_user_confirmed
+sheet_cdfa6a50a5a51b214333	S;dab;hxorn;G;E;Y;dab	free	free	unknown	7	2.984	7.914	False			False	hxorn	development	experimental_user_confirmed
+sheet_7b45d9f5424c7455c5f1	T;T;H;T;Q;G;Y;T;T	free	free	unknown	9	3.496	11.284	False			False		development	experimental_user_confirmed
+sheet_96c24109fde39cce1090	E;Y;dab;S;R;S;hxorn;K;hxorn;T;T	free	free	unknown	11	3.518	11.459	False			False	hxorn	development	experimental_user_confirmed
+sheet_b638b99f419784f41b40	L;A;A;L;A;A;A;L;L;L;A;T;lys(lau)	free	free	unknown	13	3.603	12.155	False			False		development	experimental_user_confirmed
+sheet_ff90b810084e41fe41cb	E;Y;dab;S;R;S;hxorn;K;hxorn;T;T	free	free	unknown	11	3.518	11.459	False			False	hxorn	development	experimental_user_confirmed
+sheet_a1b0f0cb12a40d07904b	T;T;E;G;V;T;L;dab;K;E;S;S	free	free	unknown	12	3.723	13.204	False			False		development	experimental_user_confirmed
+sheet_7381f736217c1275a3bd	L;L;beta-lys;dap;R	free	free	unknown	5	3.528	11.535	False			False	beta-lys	development	experimental_user_confirmed
+sheet_2176d2e4c41dc4634ab1	T;R;F;A;L	free	free	unknown	5	3.864	14.562	False			False		development	experimental_user_confirmed
+sheet_815bc636b1e82a074475	L;L;beta-lys;dap;R	free	free	unknown	5	3.528	11.535	False			False	beta-lys	development	experimental_user_confirmed
+sheet_70e89c397ebdbeec26a8	F;Y;V;F;F;V;A;F	free	free	unknown	8	6.686	102.952	False			False		development	experimental_user_confirmed
+sheet_43863ca133804ebdbe1d	W;Y;F;L;A	free	free	unknown	5	2.954	7.747	False			False		development	experimental_user_confirmed
+sheet_c90313fd371ed565bab5	L;L;beta-lys;dap;R	free	free	unknown	5	3.528	11.535	False			False	beta-lys	development	experimental_user_confirmed
+sheet_427daadff125faa96aec	S;A;S;T;A;S;hxorn;L;S;S	free	free	unknown	10	4.020	16.222	False			False	hxorn	development	experimental_user_confirmed
+sheet_a62b6203b360033c1d45	E;Y;dab;S;R;S;hxorn;K;hxorn	free	free	unknown	9	8.029	261.159	False			False	hxorn	development	experimental_user_confirmed
+sheet_a71b257230f2dfac9f44	R;beta-ala;beta-ala;beta-ala;Y	free	free	unknown	5	4.011	16.122	False			False		development	experimental_user_confirmed
+sheet_e2762be33ab75a5d22f9	G;V;E;V;orn;Q	free	free	unknown	6	4.054	16.616	False			False		development	experimental_user_confirmed
+sheet_223384ea24c7b669faac	L;F;A;L;L	free	free	unknown	5	4.101	17.158	False			False		development	experimental_user_confirmed
+sheet_57671eb44399b6e55073	E;Y;dab;S;R;S	free	free	unknown	6	3.447	10.906	False			False		development	experimental_user_confirmed
+sheet_2b6974195e84728b4485	S;dab;E;Y;dab	free	free	unknown	5	3.223	9.339	False			False		development	experimental_user_confirmed
+sheet_ec8117aff86225141ad0	T;D;S;G;hse;hxorn;A;D;hxorn	free	free	unknown	9	4.253	19.066	False			False	hxorn	development	experimental_user_confirmed
+sheet_3e579b5daf83647ac7a5	pip;L;H;H;H	free	free	unknown	5	4.468	22.123	False			False		development	experimental_user_confirmed
+sheet_39899c51dbc3cf9cb320	S;R;S;E;Y;dab	free	free	unknown	6	3.882	14.742	False			False		development	experimental_user_confirmed
+sheet_a8b34091fef4ad69fe01	A;L;K;T;orn;L	free	free	unknown	6	4.477	22.273	False			False		development	experimental_user_confirmed
+sheet_9bf3a8c7e2a473e854ea	V;A;A;L;L;A;A;L;L;A;T	free	free	unknown	11	4.619	24.575	False			False		development	experimental_user_confirmed
+sheet_fc9e5d6f24ce56d2418d	L;L;beta-lys;dap;R	free	free	unknown	5	3.528	11.535	False			False	beta-lys	development	experimental_user_confirmed
+sheet_e4e374311407582ad07e	S;orn;hxorn;D;dab;K	free	free	unknown	6	4.963	31.196	False			False	hxorn	development	experimental_user_confirmed
+sheet_d95f11792e660c7ac7f2	T;F;F;L;L;L;L;T;T;A;T;H	free	free	unknown	12	3.398	10.545	False			False		development	experimental_user_confirmed
+sheet_12864b2329a20739f3dd	K;D;G;T;A;S;hxorn;A	free	free	unknown	8	4.959	31.109	False			False	hxorn	development	experimental_user_confirmed
+sheet_7fcb9b81cff6e960b063	E;Y;dab;S;R;S;hxorn;K;hxorn;T;T	free	free	unknown	11	3.518	11.459	False			False	hxorn	development	experimental_user_confirmed
+sheet_00428b8ca6b11caae26a	E;Y;dab;K;D;T;T;S;D;S	free	free	unknown	10	2.234	4.705	False			False		development	experimental_user_confirmed
+sheet_3a6b9c72021c6eb4f67d	P;beta-ala;P;S;K	free	free	unknown	5	1.855	3.616	False			False		development	experimental_user_confirmed
+sheet_c18849a55054784054b3	S;A;T;T;A;S;hxorn;A;R;S;L;W;A	free	free	unknown	13	2.519	5.732	False			False	hxorn	development	experimental_user_confirmed
+sheet_ea757f1703dd37b49c00	S;hxorn;D;S;A;D;K	free	free	unknown	7	2.078	4.223	False			False	hxorn	development	experimental_user_confirmed
+sheet_ffd39c6e33a23dddee9d	K;R;S;K;L;dab;T;A;lys(myr)	free	free	unknown	9	2.637	6.218	False			False		development	experimental_user_confirmed
+sheet_4c11928c22e015397d14	E;Y;dab;S;R;S;hxorn;K;hxorn;T;T	free	free	unknown	11	3.518	11.459	False			False	hxorn	development	experimental_user_confirmed
+sheet_791aa868d8ee05a638c2	A;K;T;S;hxorn;hxorn	free	free	unknown	6	2.373	5.180	False			False	hxorn	development	experimental_user_confirmed
+sheet_61a268c1c27354d365fc	L;L;beta-lys;dap;R	free	free	unknown	5	3.528	11.535	False			False	beta-lys	development	experimental_user_confirmed
+sheet_97c2cf0b092036b38dbe	K;D;T;G;T;K;K;D;T	free	free	unknown	9	2.571	5.942	False			False		development	experimental_user_confirmed
+sheet_100e952906a72e201c67	G;hxorn;hxorn;D;S	free	free	unknown	5	2.498	5.651	False			False	hxorn	development	experimental_user_confirmed
+sheet_e4b847d40e907fc7b993	T;S;hxorn;H;S;K	free	free	unknown	6	2.533	5.788	False			False	hxorn	development	experimental_user_confirmed
+sheet_d1e51362e5fe57d68776	V;L;W;T;V	free	free	unknown	5	2.602	6.073	False			False		development	experimental_user_confirmed
+sheet_cd112bc62a66154fa361	W;Y;F;V;E;beta-lys	free	free	unknown	6	2.636	6.215	False			False	beta-lys	development	experimental_user_confirmed
+sheet_9aaae4c2e24e94669a01	L;A;I;A;L;K;T;orn;V;L	free	free	unknown	10	2.931	7.625	False			False		development	experimental_user_confirmed
+sheet_4b5d7a3e02a4bae12d0f	T;D;G;S;S;S;hxorn;A	free	free	unknown	8	2.558	5.889	False			False	hxorn	development	experimental_user_confirmed
+sheet_b68d924d20c234483618	D;K;hxorn;A;E;Y;dab	free	free	unknown	7	2.689	6.450	False			False	hxorn	development	experimental_user_confirmed
+sheet_48d7dd55b658c60b3e58	T;R;F;I;V;N	free	free	unknown	6	2.786	6.899	False			False		development	experimental_user_confirmed
+sheet_6437552813d0411c36cd	D;hxorn;Q;S;D;R;hxorn	free	free	unknown	7	2.725	6.609	False			False	hxorn	development	experimental_user_confirmed
+sheet_6ca5f0104af7e4679fc8	S;K;G;hxorn;S;S;G;orn;hxorn;S	free	free	unknown	10	2.811	7.018	False			False	hxorn	development	experimental_user_confirmed
+sheet_fd31ee3fc3d2de09ed3f	S;dab;E;Y;dab	free	free	unknown	5	3.223	9.339	False			False		development	experimental_user_confirmed
+sheet_f8cd68ebcc1cf86780c9	L;L;beta-lys;dap;R	free	free	unknown	5	3.528	11.535	False			False	beta-lys	development	experimental_user_confirmed
+sheet_a88bbcb808290196f7a3	D;L;L;D;N;A	free	free	unknown	6	2.882	7.369	False			False		development	experimental_user_confirmed
+sheet_14322e2a55c1360c6ea6	L;L;R;dap;R	free	free	unknown	5	2.990	7.947	False			False		development	experimental_user_confirmed
+sheet_1aacfa0cea4b7598fe0e	I;Q;I;Q;V;F;N;H;A;T;S;N;beta-ala;C;C	free	free	unknown	15	3.042	8.235	False			False		development	experimental_user_confirmed
+sheet_34ef79abe9e4d01abc24	F;L;A;T;A;I	free	free	unknown	6	2.948	7.718	False			False		development	experimental_user_confirmed
+sheet_90921702cca55153fb26	A;T;L;A;A;T;L;A	free	free	unknown	8	3.236	9.424	False			False		development	experimental_user_confirmed
+sheet_a513616b1ec48ff52b4b	S;dab;E;Y;dab	free	free	unknown	5	3.223	9.339	False			False		development	experimental_user_confirmed
+sheet_7595735bb4a1989b1d6b	S;dab;E;Y;dab	free	free	unknown	5	3.223	9.339	False			False		development	experimental_user_confirmed
+sheet_0728a5072fed48dae8d1	L;L;beta-lys;dap;R	free	free	unknown	5	3.528	11.535	False			False	beta-lys	development	experimental_user_confirmed
+sheet_8a67c262e7ee07464ac2	S;dab;E;Y;dab	free	free	unknown	5	3.223	9.339	False			False		development	experimental_user_confirmed
+sheet_35fcbae9f5cd8203ca17	E;Y;dab;S;R;S;hxorn;K;hxorn;T;T	free	free	unknown	11	3.518	11.459	False			False	hxorn	development	experimental_user_confirmed
+sheet_69783876d40dc647e507	S;dab;Q;E;Y;dab	free	free	unknown	6	2.876	7.341	False			False		development	experimental_user_confirmed
+sheet_e2ec89bf3fc8c2c31b47	E;Y;dab;S;R;S	free	free	unknown	6	3.447	10.906	False			False		development	experimental_user_confirmed
+sheet_fca8fa259a4c281d8b3d	S;S;E;Y;dab	free	free	unknown	5	2.833	7.126	False			False		development	experimental_user_confirmed
+sheet_f64bf0dd83bd91bd8d32	orn;horn;G;orn;S;S	free	free	unknown	6	3.086	8.492	False			False	horn	development	experimental_user_confirmed
+sheet_9ebc175e289f6e8b5b75	E;Y;dab;S;R;S;hxorn;K;hxorn;T;T	free	free	unknown	11	3.518	11.459	False			False	hxorn	development	experimental_user_confirmed
+sheet_fe7fe6904bd0e35483e6	L;V;W;R;L;L;W;E;A;V	free	free	unknown	10	3.103	8.594	False			False		development	experimental_user_confirmed
+sheet_b80d929828001a92c40e	G;S;G;N;Q;V;T	free	free	unknown	7	3.199	9.182	False			False		development	experimental_user_confirmed
+sheet_cc521f5d13910924b044	S;dab;E;Y;dab	free	free	unknown	5	3.223	9.339	False			False		development	experimental_user_confirmed
+sheet_b63c6691c56f7c51ffc4	S;R;S;E;Y;dab	free	free	unknown	6	3.882	14.742	False			False		development	experimental_user_confirmed

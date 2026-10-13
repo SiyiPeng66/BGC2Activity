@@ -1,5 +1,14 @@
 # BGC2Activity
 
+## Runnable sequence-prediction release (2026-10-13)
+
+The self-contained [BGC2Activity1013 release](BGC2Activity1013/README.md) includes
+trained models, small DNA and peptide demos, an English installation guide,
+and Conda/pip environment specifications. After cloning, run
+`cd BGC2Activity1013` and follow its README. Pfam-A.hmm is downloaded separately.
+The earlier implementation below is preserved for reference; use the release
+subdirectory for the new prediction commands.
+
 Analysis code and core data for *Hierarchical NRPS-guided global-to-local
 discovery and optimisation of synthetic anti-MRSA lipopeptides*
 (Peng et al.). The repository implements the complete computational workflow

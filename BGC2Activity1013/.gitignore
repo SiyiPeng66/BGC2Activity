@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+*.egg-info/
+results/
+runs/
+data/
+dist/
+build/
+.pytest_cache/
+*.log
+
+# Intentionally bundled, checksum-tracked inference weights (< 6 MB each).
+!models/bgc_detector.pt
+!models/activity.pt
+!models/peptide_encoder.pt

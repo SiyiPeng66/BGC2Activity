@@ -1,0 +1,248 @@
+{
+  "snapshot": "2026-10-13",
+  "total_bytes_excluding_this_manifest": 21134458,
+  "demo_bytes": 176383,
+  "max_file_bytes": 12272748,
+  "files": {
+    ".gitattributes": {
+      "bytes": 143,
+      "sha256": "2e57b3ba495d83699dd27b9bf0eeb4db20f0be78b795a3656e13ef9c290e4d90"
+    },
+    ".gitignore": {
+      "bytes": 254,
+      "sha256": "5d5f1febbc499f6edd871878a361db1c9241151e5ff50b3a7d3c6b7dd881bc5e"
+    },
+    "README.md": {
+      "bytes": 10108,
+      "sha256": "e71159fd61af55d7619ea260bc297bfc94dca2e2c1d53dc02ffda61f123e556c"
+    },
+    "THIRD_PARTY.md": {
+      "bytes": 1009,
+      "sha256": "daf15bcb9073220bc7ec3409239dac5850ba0046bf7f7049728b36c9bda87358"
+    },
+    "docs/DATA_SOURCES.md": {
+      "bytes": 1613,
+      "sha256": "a4e0e54932ed2e87d0e393f4f0972c99fb1aa3d8b4c456d527d02ab8daa8cd1e"
+    },
+    "docs/MODELS.md": {
+      "bytes": 2789,
+      "sha256": "fbaf03fcd248a52836985626590c2c2c09e7a2d97183d0c3e3f0392b337426b0"
+    },
+    "docs/TRAINING.md": {
+      "bytes": 2662,
+      "sha256": "d296b4173ff0f2be82283d89186dc6a515c51b279471a46fe816c7e2ff5e24fe"
+    },
+    "docs/VERIFICATION.md": {
+      "bytes": 1268,
+      "sha256": "6484f60cce1b93851e1288bf07a88485a44b2bd49e6c958fa6713d93de9c077e"
+    },
+    "environment.yml": {
+      "bytes": 120,
+      "sha256": "9d10c8476dc3497b0c72b9dc308d190a2c9fd7d3c65af7ef1d480cf5a6e03170"
+    },
+    "examples/activity/input.tsv": {
+      "bytes": 5246,
+      "sha256": "075ef59537f2daa1d868c44694317658f13d60b05cc2b02408242e1032987e75"
+    },
+    "examples/activity/predictions.tsv": {
+      "bytes": 11256,
+      "sha256": "0bb07ff91c2987780ac90a291a00e3601d038af9e2de63fd287714262bdf0d40"
+    },
+    "examples/activity/reference_labels.tsv": {
+      "bytes": 6533,
+      "sha256": "45118a21ba6b2cfdd04c340723261f54fddddcdc5da5ae98bd943dd6ee537a7e"
+    },
+    "examples/activity_standard.fasta": {
+      "bytes": 51,
+      "sha256": "bfc2236f7b93dbb12ff4fd525c6b14782aaeeb50e55ed2284da147d49d75adb0"
+    },
+    "examples/bgc/comparison.tsv": {
+      "bytes": 454,
+      "sha256": "62d6d1125e790b6164fab3c9fe480853461359d58971abad8d02e7ef1474fbd3"
+    },
+    "examples/bgc/example_bgc_regions.tsv": {
+      "bytes": 3114,
+      "sha256": "5ccc02c01553199f80f719482cb5d44e4382d8f6090db3e67d256aabe79c13f4"
+    },
+    "examples/bgc/input.fna": {
+      "bytes": 147798,
+      "sha256": "d0bcbd39bf4e31eab0d7721fe7453c3e7feb8f38991c724968c938cc0b77b9be"
+    },
+    "examples/bgc/reference_labels.tsv": {
+      "bytes": 1911,
+      "sha256": "943710c973a9dddfbc230e3b2c2d789967813dbb05ec9824a27bc3748a28c178"
+    },
+    "models/activity.pt": {
+      "bytes": 1740665,
+      "sha256": "aacd0a9646f43433a786654c1b6fc03c756163d06cba485a8e9b0eac69e77626"
+    },
+    "models/bgc_detector.pt": {
+      "bytes": 5144477,
+      "sha256": "ef194435499efcd4198039fac3a2488c31b37e3d900e22352295356dec98b793"
+    },
+    "models/manifest.json": {
+      "bytes": 811,
+      "sha256": "5413c738262d70baaad2a644a96f4a213f2db7add303197fbc5cd1dc34c2d55f"
+    },
+    "models/peptide_encoder.pt": {
+      "bytes": 1626488,
+      "sha256": "dd8deda25bded32f778122e30733a4613178d3157a271613c993b356a9f60928"
+    },
+    "models/pfam2vec.csv.gz": {
+      "bytes": 12272748,
+      "sha256": "b65e07d02443f464303fd88b2215fdb4cd22fdbbfec4564a0f3b7bd097b03e75"
+    },
+    "predict_activity.py": {
+      "bytes": 2020,
+      "sha256": "8c42b0821af909bb02f381129ca8d0cc8dff293aac66b399a5b0f170b76f7f68"
+    },
+    "pyproject.toml": {
+      "bytes": 550,
+      "sha256": "a8f2867aa2a64b63dcd09b35b76cb0c83898aedc27c7f6ad10f4195afd5fa1f5"
+    },
+    "requirements.txt": {
+      "bytes": 113,
+      "sha256": "487d4b9e88c5144c26b680dfa3023caeb1c67f78270941bfa9fda9f7fe427d51"
+    },
+    "scripts/encode_peptides.py": {
+      "bytes": 2906,
+      "sha256": "d96216b8f8b9513edb8b320195c48318dc1c0c1616acc6c9f0507381e668a9ce"
+    },
+    "scripts/predict_bgc_genome.py": {
+      "bytes": 1207,
+      "sha256": "e74db073a6520b7fba84123f67f3da3efb887ad30b85f48f8466209d0d81c1d2"
+    },
+    "scripts/predict_bgc_regions.py": {
+      "bytes": 3892,
+      "sha256": "093013139bbf06dd64b5c9bbbc4b356330d98c63e7c0041e8b8f3660c01441cf"
+    },
+    "scripts/predict_chemical_mic.py": {
+      "bytes": 4770,
+      "sha256": "3ecc4c4d9a02566dde6f180edc5d5ffe78b8f6a71362e21910d21ac611c7c77e"
+    },
+    "scripts/predict_mic.py": {
+      "bytes": 3584,
+      "sha256": "cc0f41b46e1523932b85710a0a38d89819d95a2e7302762adfaacd587464a8d8"
+    },
+    "scripts/train_bgc_detector.py": {
+      "bytes": 6172,
+      "sha256": "bf717d4e780550a25de07a77ed624b9a473742146113bc6947878f9c81333ac5"
+    },
+    "scripts/train_bgc_v4.py": {
+      "bytes": 9410,
+      "sha256": "5bdffaa3fdae8d1bbe07ed5c30977819e440a1cad94ce3f6026f669e8806dcaa"
+    },
+    "scripts/train_mic_all_data.py": {
+      "bytes": 7455,
+      "sha256": "9e777703c6eb199c21ac420f11202bb2b82885519f5bb076092962435120b06f"
+    },
+    "scripts/train_peptide_pretraining.py": {
+      "bytes": 7329,
+      "sha256": "d35f3cd6d6ff3b831aa432b65642839150af2c79f2bf80df44830afc7e0853ee"
+    },
+    "src/bgc2activity_reconstructed/activity/__init__.py": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "src/bgc2activity_reconstructed/activity/chemical.py": {
+      "bytes": 2650,
+      "sha256": "659e4edb68a91d0069bf65ee629174f7106fb75f4b118ebf4cbb65721746af1b"
+    },
+    "src/bgc2activity_reconstructed/activity/input.py": {
+      "bytes": 1925,
+      "sha256": "48fc4587c5c8dab41d25a8ecc1c341716528e9f6662509bd47cc9f5d045c4dce"
+    },
+    "src/bgc2activity_reconstructed/activity/model.py": {
+      "bytes": 2062,
+      "sha256": "d15f2af3f46d318431ec78998da509819e480700195d19f593dcd62caac75bb8"
+    },
+    "src/bgc2activity_reconstructed/detection/__init__.py": {
+      "bytes": 3718,
+      "sha256": "ec12f3dcad16268ec40e2fec50747e930c911b6fe593aab0f808c19bad7d7dad"
+    },
+    "src/bgc2activity_reconstructed/detection/annotation.py": {
+      "bytes": 7030,
+      "sha256": "f6915c76a21bb42bd7db6027053f9d5558c22ec0fd030624fc6c5673b7381e09"
+    },
+    "src/bgc2activity_reconstructed/detection/data.py": {
+      "bytes": 4625,
+      "sha256": "ec73fc3286972180454b10a195fc588a2da8afc9f32c89fc867d41220f18987f"
+    },
+    "src/bgc2activity_reconstructed/detection/evaluation.py": {
+      "bytes": 17086,
+      "sha256": "25782718a0be19a0cfe2665a8c01256d961b1c3ae2190a00ba4542c5962af5f8"
+    },
+    "src/bgc2activity_reconstructed/detection/families.py": {
+      "bytes": 4690,
+      "sha256": "44d4ef329856c4dbaf1bcaefb24272b828220da1f8fddd9ca08a797f749a6f74"
+    },
+    "src/bgc2activity_reconstructed/detection/genome.py": {
+      "bytes": 12855,
+      "sha256": "ddffdbe09c6c659548df5330a453e82709be2b9d460b9bd901bef71d76dfb07c"
+    },
+    "src/bgc2activity_reconstructed/detection/losses.py": {
+      "bytes": 3598,
+      "sha256": "78c10e67c8cfa27261b7c48e46577e536827b1c95ec16d1f62ef1e1621939e07"
+    },
+    "src/bgc2activity_reconstructed/detection/model.py": {
+      "bytes": 8864,
+      "sha256": "f3d647f76061def59d8c52603453432be7f4fd410985f127585114bb80988f63"
+    },
+    "src/bgc2activity_reconstructed/detection/regions.py": {
+      "bytes": 6800,
+      "sha256": "62f6fe2c82c79315034407e6d55932aca8a9ad8d8d8e8d9109952dbe4be54f44"
+    },
+    "src/bgc2activity_reconstructed/detection/training.py": {
+      "bytes": 2236,
+      "sha256": "925e0340ed655cfc27058f68c377a4cb1ba8b302be35ce25da6b076f28340c0b"
+    },
+    "src/bgc2activity_reconstructed/pretraining/__init__.py": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "src/bgc2activity_reconstructed/pretraining/chemistry.py": {
+      "bytes": 4853,
+      "sha256": "66d9aa34e35bb5bf8b03d014dfcd05dc5f984f93a4f9f39964501f06f6f4c1d1"
+    },
+    "src/bgc2activity_reconstructed/pretraining/data.py": {
+      "bytes": 2752,
+      "sha256": "b9020dbb4769de3cb7aca394fcdbc3053341282f351e110910c23f134bf1ca32"
+    },
+    "src/bgc2activity_reconstructed/pretraining/model.py": {
+      "bytes": 2124,
+      "sha256": "f85d0158054559af8eb8f2b5d0806125cdb135210081e3cc938fd74d047f253b"
+    },
+    "src/bgc2activity_reconstructed/pretraining/objective.py": {
+      "bytes": 1283,
+      "sha256": "dff68c5ff01fa416ae84a36b79346a1845a6d77c226ba324f86fd7b6f99f65d0"
+    },
+    "src/bgc2activity_reconstructed/pretraining/registry.py": {
+      "bytes": 1188,
+      "sha256": "246c2ce1ef72de774445938618a47d271cc2d607deb19335309364ed7a83594c"
+    },
+    "tests/test_bgc_detector_closure.py": {
+      "bytes": 1514,
+      "sha256": "f285fbe2664a2aa12d9df93f5c8c09bf5b2aeb3ffc3be1e5a77e480fdc5ab6da"
+    },
+    "tests/test_bgc_inference_contract.py": {
+      "bytes": 2972,
+      "sha256": "541a701a1c20f1916dcfd35844a5c18db89999cb0cdb6c299c87276698079296"
+    },
+    "tests/test_genome_pipeline.py": {
+      "bytes": 2212,
+      "sha256": "6099ace74645e28532354719a7371ba48371ae0c87acd80168776adaba27e5b4"
+    },
+    "tests/test_mic_regression.py": {
+      "bytes": 2731,
+      "sha256": "d0318ac0f6085caa2cfbc3a623ddb10bbfb71a05462c92f8ed73af56c5c47c74"
+    },
+    "tests/test_monomer_registry.py": {
+      "bytes": 1242,
+      "sha256": "66679079dfa7e54ae8ac2982a3374b4eaa28005259fe55278391d630233fec0f"
+    },
+    "tests/test_peptide_pretraining.py": {
+      "bytes": 2520,
+      "sha256": "86de06f72ce0093eb405ae8b9af126b07e36e29705b5818e11dbd879a1ed1f55"
+    }
+  }
+}
