@@ -4,6 +4,10 @@ Predict candidate biosynthetic gene clusters (BGCs) from bacterial or archaeal D
 
 **Pretrained models are included. You do not need to train a model or specify a checkpoint for normal use.** The two workflows are separate: BGC DNA is not a peptide sequence, and this release does not automatically reconstruct a peptide product from a detected BGC.
 
+## Mass-spectrometry dataset
+
+The [100-peptide mass-spectrometry dataset](datasets/synthetic_peptide_ms_dataset_n100/README.md) contains 100 mzML/sequence-table pairs (approximately 102.6 MB), including NRP1–NRP80 and 20 NRP45 derivatives. A sample index and SHA-256 checksums are included. This dataset is separate from the small prediction demos and contains no MIC labels.
+
 ## 1. Install once
 
 Use Linux or macOS; Windows users can use WSL2. Install [Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install), download or clone this repository, and open a terminal in its root directory.
@@ -160,7 +164,7 @@ results/               Your generated results (ignored by Git)
 
 BGC DNA input is approximately **148 KB**, well below 10 MB. It includes five reference BGC types and a genomic background fragment. The background lies outside local antiSMASH annotations but is **not an experimentally confirmed negative**. Expected and actual labels differ: the recorded run misses the RiPP example, misclassifies the PKS example and calls a region in the background. See `examples/bgc/comparison.tsv` and [data provenance](docs/DATA_SOURCES.md).
 
-The repository is about 22 MB before Git history, dominated by Pfam2Vec and the checkpoints. Each included file is below 50 MB; Git LFS is not required for this snapshot. Pfam HMMs, full training datasets, environments, historical outputs and archives are excluded. Do not add them with `git add -f`. Checksums and sizes are in `models/manifest.json` and `repository_manifest.json`.
+The code, models and small demos occupy approximately 21 MB; the separately added mass-spectrometry dataset adds approximately 103 MB (excluding Git history). Each included file is below 50 MB; Git LFS is not required for this snapshot. Pfam HMMs, full training datasets, environments, historical outputs and archives are excluded. Do not add them with `git add -f`. Checksums and sizes are in `models/manifest.json` and `repository_manifest.json`.
 
 ## 5. Troubleshooting
 

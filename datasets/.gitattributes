@@ -1,0 +1,2 @@
+synthetic_peptide_ms_dataset_n100/*.mzML -text
+synthetic_peptide_ms_dataset_n100/*.tsv -text
